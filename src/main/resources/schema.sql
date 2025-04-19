@@ -1,0 +1,11 @@
+--CREATE SCHEMA IF NOT EXISTS main;
+
+--CREATE TABLE IF NOT EXISTS main.businesses (
+--    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+--    name VARCHAR(255) NOT NULL,
+--    external_id VARCHAR(255) NOT NULL UNIQUE,
+--    gstin VARCHAR(15) UNIQUE,
+--    preferred_language VARCHAR(255) NOT NULL,
+--    created_at TIMESTAMP NOT NULL,
+--    last_modified TIMESTAMP NOT NULL
+--);

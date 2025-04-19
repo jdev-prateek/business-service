@@ -1,0 +1,1 @@
+ALTER TABLE main.businesses rename column preferred_language to preferred_lang;
