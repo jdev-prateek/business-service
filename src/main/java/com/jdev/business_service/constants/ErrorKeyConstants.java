@@ -7,4 +7,6 @@ public class ErrorKeyConstants {
     public static final String BUSINESS_ID_INVALID_DESC = "business_id must be a valid uuidv7";
     public static final String BUSINESS_NOT_FOUND = "business_not_found";
     public static final String BUSINESS_NOT_FOUND_DESC = "Business ID not found";
+    public static final String HSID_ALREADY_EXISTS = "hsid_already_exists";
+    public static final String HSID_ALREADY_EXISTS_DESC = "HSN must be unique";
 }

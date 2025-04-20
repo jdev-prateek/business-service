@@ -35,6 +35,9 @@ public class Business {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @OneToMany(mappedBy = "business")
+    private Set<Product> productSet;
+
     public UUID getId() {
         return id;
     }
