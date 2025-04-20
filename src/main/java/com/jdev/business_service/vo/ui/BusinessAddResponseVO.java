@@ -4,7 +4,7 @@ import com.jdev.business_service.vo.ServiceResponse;
 
 import java.util.UUID;
 
-public class BusinessResponseVO extends ServiceResponse {
+public class BusinessAddResponseVO extends ServiceResponse {
     private UUID id;
     private String name;
     private String gstin;

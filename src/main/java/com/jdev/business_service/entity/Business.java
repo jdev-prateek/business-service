@@ -1,15 +1,12 @@
 package com.jdev.business_service.entity;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -30,6 +27,9 @@ public class Business {
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @ManyToMany(mappedBy = "businessSet", cascade =  CascadeType.ALL)
+    private Set<Customer> customerSet;
 
     @UpdateTimestamp
     @Column(name = "updated_at")
@@ -81,6 +81,25 @@ public class Business {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public void addCustomer(Customer customer){
+        if(customerSet == null){
+            customerSet = new HashSet<>();
+        }
+
+        customerSet.add(customer);
+    }
+
+    public Set<Customer> getCustomerSet() {
+        if(customerSet == null){
+            customerSet = new HashSet<>();
+        }
+        return customerSet;
+    }
+
+    public void setCustomerSet(Set<Customer> customerSet) {
+        this.customerSet = customerSet;
     }
 
     @Override

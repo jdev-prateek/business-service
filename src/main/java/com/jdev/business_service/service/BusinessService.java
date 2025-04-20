@@ -7,7 +7,7 @@ import com.jdev.business_service.entity.Business;
 import com.jdev.business_service.enums.ResponseStatus;
 import com.jdev.business_service.repository.BusinessRepository;
 import com.jdev.business_service.vo.ui.AddBusinessVO;
-import com.jdev.business_service.vo.ui.BusinessResponseVO;
+import com.jdev.business_service.vo.ui.BusinessAddResponseVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -27,10 +27,10 @@ public class BusinessService {
     }
 
     @Transactional
-    public BusinessResponseVO addBusiness(AddBusinessVO addBusinessVO){
+    public BusinessAddResponseVO addBusiness(AddBusinessVO addBusinessVO){
         ShardContextHolder.setBusinessIdHolder(UuidCreator.getTimeOrderedEpoch());
 
-        BusinessResponseVO businessResponseVO = new BusinessResponseVO();
+        BusinessAddResponseVO businessResponseVO = new BusinessAddResponseVO();
         AddBusinessVO.Payload payload = addBusinessVO.getPayload();
 
         Optional<Business> optionalBusiness = businessRepository.findByGstin(payload.getGstin());

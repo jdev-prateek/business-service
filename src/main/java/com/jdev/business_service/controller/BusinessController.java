@@ -2,7 +2,7 @@ package com.jdev.business_service.controller;
 
 import com.jdev.business_service.service.BusinessService;
 import com.jdev.business_service.vo.ui.AddBusinessVO;
-import com.jdev.business_service.vo.ui.BusinessResponseVO;
+import com.jdev.business_service.vo.ui.BusinessAddResponseVO;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,13 +22,13 @@ public class BusinessController {
     }
 
     @PostMapping("")
-    public ResponseEntity<BusinessResponseVO> addBusiness(@Valid @RequestBody AddBusinessVO addBusinessVO){
-        BusinessResponseVO businessResponseVO = businessService.addBusiness(addBusinessVO);
+    public ResponseEntity<BusinessAddResponseVO> addBusiness(@Valid @RequestBody AddBusinessVO addBusinessVO){
+        BusinessAddResponseVO businessAddResponseVO = businessService.addBusiness(addBusinessVO);
 
-        if(businessResponseVO.isSuccess()){
-            return ResponseEntity.ok(businessResponseVO);
+        if(businessAddResponseVO.isSuccess()){
+            return ResponseEntity.ok(businessAddResponseVO);
         }
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(businessResponseVO);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(businessAddResponseVO);
     }
 }
